@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_todo_app/data/entity/todos.dart';
 import 'package:my_todo_app/ui/components/my_app_bar.dart';
+import 'package:my_todo_app/ui/components/show_alert_dialog.dart';
 import 'package:my_todo_app/ui/cubits/main_cubit.dart';
 import 'package:my_todo_app/ui/screens/save_screen.dart';
 import 'package:my_todo_app/ui/screens/update_screen.dart';
@@ -71,23 +72,7 @@ class _MainScreenState extends State<MainScreen> {
                                 const Spacer(),
                                 IconButton(
                                   onPressed: () {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          "Do you want to delete ${toDo.name}?",
-                                          style: TextStyle(color: textColor2),
-                                        ),
-                                        action: SnackBarAction(
-                                          label: "Yes",
-                                          textColor: textColor2,
-                                          onPressed: () {
-                                            context.read<MainCubit>().delete(
-                                              toDo.id,
-                                            );
-                                          },
-                                        ),
-                                      ),
-                                    );
+                                    showAlertDialog(context, toDo);
                                   },
                                   icon: Icon(Icons.close),
                                 ),

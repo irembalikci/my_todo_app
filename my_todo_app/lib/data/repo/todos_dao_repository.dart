@@ -51,6 +51,6 @@ class TodosDaoRepository {
 
   Future<void> delete(int id) async {
     var db = await DatabaseHelper.databaseConnection();
-    await db.delete("my_todos",where: "id=?",whereArgs: [id]);
+    await db.delete("my_todo",where: "id=?",whereArgs: [id]);
   }
 }
