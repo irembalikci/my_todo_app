@@ -9,10 +9,20 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      title: Text(title, 
-        style: TextStyle(
-          color: textColor2, 
-          fontSize: 26,)),
+      title: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.menu_book_rounded,color: textColor2,),
+          ),
+          Text(title, 
+            style: TextStyle(
+              color: textColor2, 
+              fontSize: 26,
+              fontFamily: "PoetsenOne")),
+        ],
+      ),
       backgroundColor: mainColor,
     );
   }

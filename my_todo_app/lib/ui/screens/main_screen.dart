@@ -65,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
                                   children: [
                                     Text(
                                       toDo.name,
-                                      style: TextStyle(fontSize: 20),
+                                      style: TextStyle(fontSize: 20,fontFamily: "PlaypenSansDeva"),
                                     ),
                                   ],
                                 ),
