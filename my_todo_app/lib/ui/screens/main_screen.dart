@@ -5,6 +5,7 @@ import 'package:my_todo_app/data/entity/todos.dart';
 import 'package:my_todo_app/ui/components/my_app_bar.dart';
 import 'package:my_todo_app/ui/cubits/main_cubit.dart';
 import 'package:my_todo_app/ui/screens/save_screen.dart';
+import 'package:my_todo_app/ui/screens/update_screen.dart';
 import 'package:my_todo_app/ui/tools/app_color.dart';
 
 class MainScreen extends StatefulWidget {
@@ -46,7 +47,12 @@ class _MainScreenState extends State<MainScreen> {
                       itemBuilder: (context, index) {
                         var toDo = toDosList[index];
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateScreen(toDos: toDo,)))
+                          .then((_){
+                            context.read<MainCubit>().loadToDos();
+                          });
+                          },
                           child: Card(
                             child: Row(
                               children: [
